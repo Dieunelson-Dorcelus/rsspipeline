@@ -1,10 +1,14 @@
 # rsspipeline
 
-> an application that manages your RSS feeds before their publication
+> An application that manages your RSS feeds before their publication
 
 ## Build Setup
 
 ``` bash
+
+# go in app folder
+cd ./app
+
 # install dependencies
 npm install
 
