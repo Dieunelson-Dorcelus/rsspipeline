@@ -21,13 +21,13 @@
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false">[More action]</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">+ Source</a>
-                        <a class="dropdown-item" href="#">- Source</a>
-                        <a class="dropdown-item" href="#">View Sources</a>
+                        <a class="dropdown-item" href="#" @click.self.prevent="moreAction('source', 'add')">+ Source</a>
+                        <a class="dropdown-item" href="#" @click.self.prevent="moreAction('source', 'remove')">- Source</a>
+                        <a class="dropdown-item" href="#" @click.self.prevent="moreAction('source', 'list')">View Sources</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">+ Channel</a>
-                        <a class="dropdown-item" href="#">- Channel</a>
-                        <a class="dropdown-item" href="#">View Channels</a>
+                        <a class="dropdown-item" href="#" @click.self.prevent="moreAction('channel', 'add')">+ Channel</a>
+                        <a class="dropdown-item" href="#" @click.self.prevent="moreAction('channel', 'remove')">- Channel</a>
+                        <a class="dropdown-item" href="#" @click.self.prevent="moreAction('channel', 'list')">View Channels</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Need help ?</a>
                     </div>
@@ -56,7 +56,14 @@ export default {
         return {
 
         }
-    }
+    },
+    methods: {
+        moreAction(name, action){
+            console.log("OK 1")
+            
+            this.$emit("moreAction", name, action)
+        }
+    },
 }
 </script>
 

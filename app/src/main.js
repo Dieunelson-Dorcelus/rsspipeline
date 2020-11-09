@@ -20,11 +20,19 @@ Vue.use(VueStore)
 const router = new VueRouter({
   mode : "history",
   routes : [
-    { path:"/", component: Home},
+    { path:"/Home/:page(\\d+)", component: Home},
+    { path:"/Home", redirect:"/Home/0"},
+    { path:"/",  redirect:"/Home/0"},
+
     { path:"/Login", component: Login},
     { path:"/Register", component: Register},
-    { path:"/Grab", component: Grab},
-    { path:"/Published", component: Published},
+
+    { path:"/Grab/:page(\\d+)", component: Grab},
+    { path:"/Grab", redirect:"/Grab/0"},
+
+    { path:"/Published/:page(\\d+)", component: Published},
+    { path:"/Published", redirect:"/Published/0"},
+
     { path:"*", redirect:"/"},
   ]  
 })
