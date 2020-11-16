@@ -39,7 +39,14 @@ class Source implements Repository
 
         $table = DB_SOURCE_TABLE;
         $condition = implode(" AND ", $filterParse);
-        $SQL = "SELECT * FROM $table WHERE $condition";
+        $SQL = "SELECT * FROM $table";
+
+        if(!empty($filterParse)){
+            $SQL.=" WHERE $condition";
+        }
+
+        print $SQL;die();
+
         $statement = $this->db->query($SQL);
 
         if($statement){
