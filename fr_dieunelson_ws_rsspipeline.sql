@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 16 Novembre 2020 à 06:00
+-- Généré le :  Lun 16 Novembre 2020 à 06:14
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.2.7
 
@@ -30,6 +30,7 @@ CREATE TABLE `article` (
   `_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
+  `source` varchar(100) DEFAULT NULL,
   `link` varchar(255) NOT NULL,
   `pubDate` varchar(100) NOT NULL,
   `status` enum('grabed','droped','published','') NOT NULL,
@@ -97,17 +98,17 @@ ALTER TABLE `source`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `channel`
 --
 ALTER TABLE `channel`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `source`
 --
 ALTER TABLE `source`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
