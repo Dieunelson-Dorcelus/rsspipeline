@@ -74,6 +74,12 @@ export default {
         opacity:1;
         padding:10px;
     }
+
+    #popup>form>div{
+        width: 80%;
+        margin: auto;
+    }
+
     #popup>div{
         margin : auto;
         margin-top : 10px;
@@ -86,6 +92,10 @@ export default {
         width: 500px;
         margin: auto;
         padding-bottom:10px;
+    }
+
+    h3{
+        margin-bottom: 20px;
     }
 
     #popup>div>button{
