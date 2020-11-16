@@ -8,7 +8,7 @@
         <router-view></router-view>
     </div>
 
-    <app-popup v-if="showPopup" :itemName="popup" :itemAction="popupAction"></app-popup>
+    <app-popup v-if="showPopup" :itemName="popup" :itemAction="popupAction" @closePopup="closePopup"></app-popup>
   </div>
 </template>
 
@@ -43,6 +43,9 @@ export default {
       console.log("OK 2 : " + name + action)
       this.popup = name
       this.popupAction = action
+    },
+    closePopup(){
+      this.popup = 'nil'
     }
   },
 }

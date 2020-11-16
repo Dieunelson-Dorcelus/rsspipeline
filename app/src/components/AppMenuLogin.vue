@@ -6,14 +6,14 @@
             <a class="dropdown-item" href="/Login">Login</a>
             <a class="dropdown-item" href="/Register">Register</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Need help ?</a>
+            <a class="dropdown-item" href="#" @click.self.prevent="moreAction('help', 'nil')">Need help ?</a>
         </div>
 
         <div class="dropdown-menu" v-else>
             <a class="dropdown-item" href="#">Settings</a>
             <a class="dropdown-item" href="#" style="color:darkred" @click.self.prevent="logout">Logout</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Need help ?</a>
+            <a class="dropdown-item" href="#" @click.self.prevent="moreAction('help', 'nil')">Need help ?</a>
         </div>
     </div>
 </template>
@@ -45,8 +45,14 @@ export default {
             this.$store.get("store").disconnect()
             this.client = {}
             this.guest = this.$store.get("store").state.client.guest
+        },
+        moreAction(name, action){
+            console.log("OK 1 child")
+            
+            this.$emit("moreAction", name, action)
         }
     },
+    
 }
 </script>
 

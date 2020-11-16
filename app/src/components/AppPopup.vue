@@ -2,6 +2,7 @@
     <div id="popup" class="bg-dark" :class="show">
         <app-popup-channel v-if="isChannel" :actionType="itemAction"></app-popup-channel>
         <app-popup-source v-if="isSource" :actionType="itemAction"></app-popup-source>
+        <app-popup-help v-if="isHelp" ></app-popup-help>
         
         <div>
             <button @click.prevent.stop="close" class="btn btn-secondary">Close</button>  
@@ -12,6 +13,7 @@
 <script>
 import AppPopupSource from './AppPopupSource'
 import AppPopupChannel from './AppPopupChannel'
+import AppPopupHelp from './AppPopupHelp'
 export default {
 
     props:{
@@ -34,18 +36,20 @@ export default {
 
     components:{
         AppPopupChannel,
-        AppPopupSource
+        AppPopupSource,
+        AppPopupHelp
     },
 
     computed: {
       isSource(){  return this.itemName==="source" },
       isChannel(){ return this.itemName==="channel" },
+      isHelp(){ return this.itemName==="help" },
       show(){  return this.itemName==="nil"? "app-hide" : "app-show"}
     },
 
     methods: {
         close(){
-            this.itemName = "nil"
+            this.$emit("closePopup")
         }
     },
     

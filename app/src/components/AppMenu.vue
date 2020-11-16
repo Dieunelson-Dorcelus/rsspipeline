@@ -29,12 +29,12 @@
                         <a class="dropdown-item" href="#" @click.self.prevent="moreAction('channel', 'remove')">- Channel</a>
                         <a class="dropdown-item" href="#" @click.self.prevent="moreAction('channel', 'list')">View Channels</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Need help ?</a>
+                        <a class="dropdown-item" href="#" @click.self.prevent="moreAction('help', 'nil')">Need help ?</a>
                     </div>
                 </li>
             </ul>
             <div class="my-2 my-lg-0">
-                <app-menu-login ></app-menu-login>
+                <app-menu-login @moreAction="moreAction"></app-menu-login>
             </div>
         </div>
     </div>
