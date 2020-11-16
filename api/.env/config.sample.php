@@ -9,6 +9,7 @@ define('AUTH_DB_NAME', '');
 
 define('DB_SOURCE_TABLE', '');
 define('DB_CHANNEL_TABLE', '');
+define('DB_ARICLE_TABLE', '');
 
 
 
