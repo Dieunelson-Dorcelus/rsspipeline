@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 16 Novembre 2020 à 06:14
+-- Généré le :  Lun 16 Novembre 2020 à 07:11
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.2.7
 
@@ -53,6 +53,19 @@ CREATE TABLE `channel` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `published`
+--
+
+CREATE TABLE `published` (
+  `_id` int(11) NOT NULL,
+  `article_id` int(11) NOT NULL,
+  `channel_id` int(11) NOT NULL,
+  `date_created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `source`
 --
 
@@ -83,6 +96,12 @@ ALTER TABLE `channel`
   ADD UNIQUE KEY `name_unique` (`name`);
 
 --
+-- Index pour la table `published`
+--
+ALTER TABLE `published`
+  ADD PRIMARY KEY (`_id`);
+
+--
 -- Index pour la table `source`
 --
 ALTER TABLE `source`
@@ -103,6 +122,11 @@ ALTER TABLE `article`
 -- AUTO_INCREMENT pour la table `channel`
 --
 ALTER TABLE `channel`
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `published`
+--
+ALTER TABLE `published`
   MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `source`

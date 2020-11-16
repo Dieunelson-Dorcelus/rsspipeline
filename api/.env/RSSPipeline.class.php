@@ -72,4 +72,9 @@ class RSSPipeline
         # code...
     }
 
+    public function rss(string $channel)
+    {
+        # code...
+    }
+
 }
