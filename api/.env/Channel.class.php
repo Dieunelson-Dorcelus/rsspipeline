@@ -25,7 +25,7 @@ class Channel implements Repository
         $statement = $this->db->query($SQL);
 
         if($statement){
-            return $statement->fetchAll();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
         }
         
         return [];
@@ -50,7 +50,7 @@ class Channel implements Repository
         $statement = $this->db->query($SQL);
 
         if($statement){
-            return $statement->fetchAll();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
         }
 
         return [];
