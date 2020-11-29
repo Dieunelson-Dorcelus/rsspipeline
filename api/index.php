@@ -5,6 +5,7 @@ require_once ".env/config.php";
 require_once ".env/DB.class.php";
 require_once ".env/RSS.class.php";
 require_once ".env/RSSPipeline.class.php";
+require_once ".env/Router.interface.php";
 require_once ".env/RSSPipelineRouter.class.php";
 require_once ".env/Source.class.php";
 require_once ".env/Channel.class.php";
@@ -15,13 +16,30 @@ use fr\dieunelson\webservices\RSS;
 use fr\dieunelson\webservices\rsspipeline\Source;
 use fr\dieunelson\webservices\rsspipeline\Channel;
 use fr\dieunelson\webservices\rsspipeline\Article;
-
-
+use fr\dieunelson\webservices\rsspipeline\RSSPipelineRouter;
 
 $db = new DB();
 $instance = $db->get();
 
 
+$sources = new Source($instance);
+/*
+$readAll = $source->readAll();
+var_dump($readAll);
+$read = $source->read(["name"=>"korben"]);
+var_dump($read);
+$create = $source->create(["name"=>"test", "url"=>"test.test"]);
+var_dump($create);
+if($create) var_dump($source->delete(["name"=>"test"]));
+*/
+try {
+    $router = new RSSPipelineRouter($sources);
+    $router->route(htmlentities($_GET['path']));
+} catch (\Throwable $th) {
+    //throw $th;
+}
+
+/*
 $channel = new Channel($instance);
 
 
@@ -65,4 +83,4 @@ foreach ($feed->channel->item as $i) {
     var_dump($article->create(["title" => $i->title, "description" => $i->description, "link" => $i->link, "pubDate" => $i->pubDate, "status" => $i->status]));
 }
 
-var_dump($article->readAll());
+var_dump($article->readAll());*/
